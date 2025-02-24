@@ -19,7 +19,6 @@ export default function App() {
     axios
       .get("http://localhost:3000/weather")
       .then((res) => {
-        console.log(res.data);
         setWeather({
           country: res.data.location.country,
           city: res.data.location.name,
@@ -45,6 +44,19 @@ export default function App() {
         console.log(error);
       });
   };
+
+  const getNews = function () {
+    axios
+      .get("http://localhost:3000/news")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  getNews();
 
   return (
     <>

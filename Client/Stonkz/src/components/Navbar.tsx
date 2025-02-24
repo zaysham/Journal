@@ -28,13 +28,18 @@ export default function Navbar({ sendPostal }: NavbarProps) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <form
-              onSubmit={() => sendPostal(postal)}
+              onSubmit={(e) => {
+                e.preventDefault();
+                sendPostal(postal);
+              }}
               className="d-flex ms-auto"
             >
               <input
                 id="postal"
                 type="text"
-                onChange={(e) => setPostal(e.target.value)}
+                onChange={(e) => {
+                  setPostal(e.target.value);
+                }}
                 placeholder="Postal Code/Zipcode"
               />
 

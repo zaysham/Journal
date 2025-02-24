@@ -35,6 +35,10 @@ app.post('/weather', async(req, res)=>{
    
 })
 
+app.get('/news', async(req, res)=>{
+    res.send("News Received"); 
+})
+
 
 
 
