@@ -1,9 +1,11 @@
 import "./App.css";
 import axios from "axios";
 import { useState } from "react";
-import Navbar from "./components/navbar";
-import WeatherComponent from "./components/WeatherComponent";
-import News from "./components/News";
+import Navbar from "./components/NavbarComponent/Navbar";
+import WeatherComponent from "./components/WeatherComponent/WeatherComponent";
+import News from "./components/NewsComponent/News";
+import Journal from "./components/JournalComponent/Journal";
+import Calendar from "./components/CalendarComponent/Calendar";
 
 export default function App() {
   const [weather, setWeather] = useState({
@@ -13,6 +15,18 @@ export default function App() {
     condition: "",
     icon: "",
   });
+
+  const [news, setNews] = useState<
+    [
+      { title: string; description: string; url: string },
+      { title: string; description: string; url: string },
+      { title: string; description: string; url: string }
+    ]
+  >([
+    { title: "", description: "", url: "" },
+    { title: "", description: "", url: "" },
+    { title: "", description: "", url: "" },
+  ]);
 
   const fetchWeather = function () {
     //fetch weather function
@@ -38,7 +52,9 @@ export default function App() {
     axios
       .post("http://localhost:3000/weather", { postal })
       .then(() => {
-        fetchWeather();
+        if (postal) {
+          fetchWeather();
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -49,22 +65,44 @@ export default function App() {
     axios
       .get("http://localhost:3000/news")
       .then((res) => {
-        console.log(res);
+        setNews([
+          {
+            title: res.data[0].title,
+            description: res.data[0].description,
+            url: res.data[0].url,
+          },
+          {
+            title: res.data[1].title,
+            description: res.data[1].description,
+            url: res.data[1].url,
+          },
+          {
+            title: res.data[2].title,
+            description: res.data[2].description,
+            url: res.data[2].url,
+          },
+        ]);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  getNews();
-
   return (
     <>
       <Navbar sendPostal={sendPostal} />
 
-      <WeatherComponent weather={weather} />
-
-      <News />
+      <div className="">
+        <div className="row">
+          <div className="container col-9">
+            <Calendar />
+          </div>
+          <div className="container col-3">
+            <WeatherComponent weather={weather} />
+            <News getNews={getNews} news={news} />
+          </div>
+        </div>
+      </div>
     </>
   );
 }

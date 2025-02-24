@@ -1,0 +1,26 @@
+.newsContainer {
+  color: white;
+  border: 1px solid #343a40;
+
+  height: 100%;
+  background-color: rgba(31, 41, 55, 255);
+}
+
+.news1,
+.news2,
+.news3 {
+  border: 2px solid lightgrey;
+  padding: 1%;
+}
+
+h5 a {
+  color: #ffffff;
+}
+
+h5 a:hover {
+  color: #ffeb3b;
+}
+
+a {
+  text-decoration: none;
+}
