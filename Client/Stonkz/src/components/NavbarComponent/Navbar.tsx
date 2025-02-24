@@ -7,6 +7,10 @@ interface NavbarProps {
 export default function Navbar({ sendPostal }: NavbarProps) {
   const [postal, setPostal] = useState("");
 
+  const handleClick = function () {
+    setPostal("");
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -31,6 +35,7 @@ export default function Navbar({ sendPostal }: NavbarProps) {
               onSubmit={(e) => {
                 e.preventDefault();
                 sendPostal(postal);
+                handleClick();
               }}
               className="d-flex ms-auto"
             >
@@ -40,6 +45,7 @@ export default function Navbar({ sendPostal }: NavbarProps) {
                 onChange={(e) => {
                   setPostal(e.target.value);
                 }}
+                value={postal}
                 placeholder="Postal Code/Zipcode"
               />
 

@@ -10,28 +10,40 @@ export default function Calendar() {
   ];
 
   return (
-    <div className="calendarContainer mt-5 mx-5">
-      <h1 className="mb-5">Calendar</h1>
+    <div className="calendarContainer mt-5 mx-5 rounded">
+      <h1 className="mb-3">Calendar</h1>
 
-      {januaryBtns[0].map((btn) => (
-        <button className="btn btn-primary janBtns">{btn}</button>
-      ))}
+      <h3 className="mb-4">January 2025</h3>
 
-      {januaryBtns[1].map((btn) => (
-        <button className="btn btn-primary janBtns">{btn}</button>
-      ))}
+      <div>
+        {januaryBtns[0].map((btn) => (
+          <button className="btn btn-primary janBtns">{btn}</button>
+        ))}
+      </div>
 
-      {januaryBtns[2].map((btn) => (
-        <button className="btn btn-primary janBtns">{btn}</button>
-      ))}
+      <div>
+        {januaryBtns[1].map((btn) => (
+          <button className="btn btn-primary janBtns">{btn}</button>
+        ))}
+      </div>
 
-      {januaryBtns[3].map((btn) => (
-        <button className="btn btn-primary janBtns">{btn}</button>
-      ))}
+      <div>
+        {januaryBtns[2].map((btn) => (
+          <button className="btn btn-primary janBtns">{btn}</button>
+        ))}
+      </div>
 
-      {januaryBtns[4].map((btn) => (
-        <button className="btn btn-primary janBtns">{btn}</button>
-      ))}
+      <div>
+        {januaryBtns[3].map((btn) => (
+          <button className="btn btn-primary janBtns">{btn}</button>
+        ))}
+      </div>
+
+      <div>
+        {januaryBtns[4].map((btn) => (
+          <button className="btn btn-primary janBtns">{btn}</button>
+        ))}
+      </div>
     </div>
   );
 }

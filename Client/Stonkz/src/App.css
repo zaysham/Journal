@@ -1,5 +1,7 @@
 body {
-  background: white;
+  background-color: #f7fafc;
+  color: white;
+  font-family: "Roboto", sans-serif;
 }
 
 #navbarIcon {
@@ -9,7 +11,7 @@ body {
 }
 
 .weatherContainer {
-  border: 1px solid #343a40;
+  border: 1px solid #1a202c;
   padding: 5px;
 
   height: 80%;
