@@ -1,2 +1,1 @@
-# Stonkz
- 
+# Now & Noted
