@@ -16,7 +16,7 @@ export default function Navbar({ sendPostal }: NavbarProps) {
     <>
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand rounded" href="#">
             <img
               id="navbarIcon"
               className="mx-2"

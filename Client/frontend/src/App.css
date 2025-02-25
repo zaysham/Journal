@@ -1,7 +1,11 @@
 body {
-  background-color: #f7fafc;
+  /* background-color: #f7fafc; */
   color: white;
   font-family: "Roboto", sans-serif;
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat;
 }
 
 #navbarIcon {

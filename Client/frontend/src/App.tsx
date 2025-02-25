@@ -94,11 +94,11 @@ export default function App() {
 
       <div className="">
         <div className="row">
-          <div className="col-8">
+          <div className="col-lg-8">
             <CalendarComponent />
           </div>
 
-          <div className="col-4">
+          <div className="col-lg-4">
             <WeatherComponent weather={weather} />
             <News getNews={getNews} news={news} />
           </div>

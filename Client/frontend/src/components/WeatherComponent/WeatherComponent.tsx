@@ -16,6 +16,8 @@ export default function WeatherComponent({ weather }: WeatherComponentProps) {
       {weather.country && (
         <div className="p-3">
           <div className="weatherContainer rounded ms-auto">
+            <h3 className="mb-3">Local Weather</h3>
+
             <p>
               Location: {weather.city}, {weather.country}
             </p>
