@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Navbar.css";
 
 interface NavbarProps {
   sendPostal: (post: string) => void;
@@ -13,11 +14,17 @@ export default function Navbar({ sendPostal }: NavbarProps) {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
+            <img
+              id="navbarIcon"
+              className="mx-2"
+              src="/assets/sunny.png"
+              alt="Navbar Icon"
+            />
             Now & Noted
-            <img id="navbarIcon" src="/assets/sunny.png" alt="Navbar Icon" />
+            <img id="navbarIcon" src="/assets/notebook.png" alt="Navbar Icon" />
           </a>
           <button
             className="navbar-toggler"

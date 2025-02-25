@@ -8,14 +8,6 @@ app.use(express.json());
 
 let receivedPostal = "";
 
-app.get("/joke", async (req, res) => {
-  const response = await axios.get("https://icanhazdadjoke.com/", {
-    headers: { Accept: "application/json" },
-  });
-
-  console.log(response.data.joke);
-  res.send(response.data.joke);
-});
 
 app.get("/weather", async (req, res) => {
   const response = await axios.get(

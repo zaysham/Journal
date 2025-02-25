@@ -1,0 +1,10 @@
+.navbar-brand{
+    font-size: 2em;
+
+}
+
+.navbar{
+    color: black; 
+    background-color: #f7fafc; 
+    border-bottom: 3px solid black;
+}

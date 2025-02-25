@@ -5,7 +5,7 @@ import Navbar from "./components/NavbarComponent/Navbar";
 import WeatherComponent from "./components/WeatherComponent/WeatherComponent";
 import News from "./components/NewsComponent/News";
 import Journal from "./components/JournalComponent/Journal";
-import Calendar from "./components/CalendarComponent/Calendar";
+import CalendarComponent from "./components/CalendarComponent/CalendarComponent";
 
 export default function App() {
   const [weather, setWeather] = useState({
@@ -94,10 +94,11 @@ export default function App() {
 
       <div className="">
         <div className="row">
-          <div className="container col-9">
-            <Calendar />
+          <div className="col-8">
+            <CalendarComponent />
           </div>
-          <div className="container col-3">
+
+          <div className="col-4">
             <WeatherComponent weather={weather} />
             <News getNews={getNews} news={news} />
           </div>

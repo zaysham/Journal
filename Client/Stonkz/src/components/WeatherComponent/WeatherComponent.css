@@ -1,5 +1,6 @@
 .weatherContainer {
-  color: white;
-
+  color: black;
+  background: #d8ecfe;
   text-align: center;
+  border: 1px solid #343a40;
 }

@@ -1,24 +1,27 @@
 .newsContainer {
-  color: white;
+  color: black;
   border: 1px solid #343a40;
 
   height: 100%;
-  background-color: rgba(31, 41, 55, 255);
+  /* background-color: rgba(31, 41, 55, 255); */
+  background-color: #d8ecfe; 
 }
 
 .news1,
 .news2,
 .news3 {
-  border: 2px solid lightgrey;
+  border: 1px solid rgba(31,31,55,255); 
   padding: 1%;
 }
 
 h5 a {
-  color: #ffffff;
+  /* color: #ffffff; */
+  color: black;
 }
 
 h5 a:hover {
-  color: #ffeb3b;
+  color: #004e92;
+  text-decoration: underline; 
 }
 
 a {
