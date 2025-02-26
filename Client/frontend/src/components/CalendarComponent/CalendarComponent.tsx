@@ -1,7 +1,8 @@
-import "./Calendar.css";
 import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 import { useState } from "react";
 import Journal from "./JournalComponent/Journal";
+import "./Calendar.css";
 
 type ValuePiece = Date | null;
 
@@ -14,6 +15,7 @@ export default function CalendarComponent() {
     <>
       <div className="calendarContainer mt-5 mx-5 rounded">
         <Calendar
+          className="calendarCSS"
           onChange={(value) => {
             onChange(value);
           }}

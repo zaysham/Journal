@@ -5,20 +5,44 @@ interface JournalProps {
   value: string;
 }
 
+interface JournalEntry {
+  date: string;
+  entry: string;
+}
+
 export default function Journal({ value }: JournalProps) {
-  const [journalEntries, setJournalEntries]: { date: string; entry: string } =
-    useState([{}]);
+  const arr = [];
+
+  const [journalEntries, setJournalEntries] = useState<JournalEntry[]>([]);
 
   const [journalData, setJournalData] = useState("");
 
+  const [currentData, setCurrentData] = useState({
+    date: "",
+    entry: "",
+  });
+
   function handleClick(e) {
     e.preventDefault();
-    const tempObj: { date: string; entry: string } = {
+    const tempObj: JournalEntry = {
       date: value,
       entry: journalData,
     };
 
-    setJournalEntries([journalEntries, tempObj]);
+    const latest = [...journalEntries, tempObj];
+    setJournalEntries(latest);
+
+    arr.push(latest);
+    console.log(arr[0]);
+  }
+
+  function findEntry(data: string) {
+    const filteredEntry = journalEntries.filter((word) => word.date === data);
+
+    setCurrentData({
+      date: filteredEntry[0].date,
+      entry: filteredEntry[0].entry,
+    });
   }
 
   return (
@@ -49,12 +73,16 @@ export default function Journal({ value }: JournalProps) {
         </div>
       </form>
 
-      <button className="btn btn-warning">Get Journal Entry for {value}</button>
+      <button onClick={() => findEntry(value)} className="btn btn-warning">
+        Get Journal Entry for {value}
+      </button>
 
-      <div className="journalEntryContainer">
-        <h1>{journalEntries[0].date}</h1>
-        <h1>{journalEntries[0].entry}</h1>
-      </div>
+      {journalEntries && (
+        <div className="journalEntryContainer">
+          <h1>{currentData.date}</h1>
+          <h1>{currentData.entry}</h1>
+        </div>
+      )}
     </div>
   );
 }

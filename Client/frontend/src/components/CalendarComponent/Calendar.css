@@ -19,12 +19,21 @@ h2 {
 
   padding: 1%;
   /* background-color: rgba(31, 41, 55, 255); */
-  background-color: #e4bac1;
+
   width: 90%;
   color: black;
-  border: 1px solid rgba(31, 31, 55, 255);
 }
 
 #journalText {
   width: 75%;
+}
+
+.calendarCSS {
+  margin: auto;
+}
+
+.react-calendar {
+  background: #e4bac1;
+  width: 60%;
+  border: 1px solid black;
 }
