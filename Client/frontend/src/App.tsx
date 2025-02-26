@@ -90,7 +90,7 @@ export default function App() {
 
   return (
     <>
-      <Navbar sendPostal={sendPostal} />
+      <Navbar />
 
       <div className="">
         <div className="row">
@@ -99,7 +99,7 @@ export default function App() {
           </div>
 
           <div className="col-lg-4">
-            <WeatherComponent weather={weather} />
+            <WeatherComponent weather={weather} sendPostal={sendPostal} />
             <News getNews={getNews} news={news} />
           </div>
         </div>

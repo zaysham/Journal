@@ -47,10 +47,12 @@ export default function Journal({ value }: JournalProps) {
 
   return (
     <div className="journalContainer mx-5">
-      <h2 id="dateClicked" className="mt-3 rounded p-1">
+      <h2 id="dateClicked" className="mt-3">
         {value}
       </h2>
+
       <form
+        className="formContainer mx-auto"
         action=""
         onSubmit={(e) => {
           handleClick(e);

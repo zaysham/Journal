@@ -1,22 +1,11 @@
-import { useState } from "react";
 import "./Navbar.css";
 
-interface NavbarProps {
-  sendPostal: (post: string) => void;
-}
-
-export default function Navbar({ sendPostal }: NavbarProps) {
-  const [postal, setPostal] = useState("");
-
-  const handleClick = function () {
-    setPostal("");
-  };
-
+export default function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg ">
-        <div className="container-fluid">
-          <a className="navbar-brand rounded" href="#">
+      <nav className="navbar navbar-expand-lg text-center">
+        <div className="container-fluid justify-content-center">
+          <a className="navbar-brand rounded mx-auto" href="#">
             <img
               id="navbarIcon"
               className="mx-2"
@@ -26,7 +15,7 @@ export default function Navbar({ sendPostal }: NavbarProps) {
             Now & Noted
             <img id="navbarIcon" src="/assets/notebook.png" alt="Navbar Icon" />
           </a>
-          <button
+          {/* <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -37,28 +26,10 @@ export default function Navbar({ sendPostal }: NavbarProps) {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                sendPostal(postal);
-                handleClick();
-              }}
-              className="d-flex ms-auto"
-            >
-              <input
-                id="postal"
-                type="text"
-                onChange={(e) => {
-                  setPostal(e.target.value);
-                }}
-                value={postal}
-                placeholder="Postal Code/Zipcode"
-              />
-
-              <button className="btn btn-success ms-3">Get Weather</button>
-            </form>
-          </div>
+          <div
+            className="collapse navbar-collapse flex-grow-0"
+            id="navbarSupportedContent"
+          ></div> */}
         </div>
       </nav>
     </>

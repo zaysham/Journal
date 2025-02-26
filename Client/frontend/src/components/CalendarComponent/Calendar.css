@@ -1,17 +1,13 @@
-h2 {
-  text-align: center;
-  background: #e4bac1;
-  display: inline-block;
-}
+
 
 #dateClicked {
   color: black;
 }
 
 .journalContainer {
-  text-align: center;
+  text-align: end; 
 
-  width: 90%;
+  width:80%;
 }
 
 .calendarContainer {
@@ -20,7 +16,7 @@ h2 {
   padding: 1%;
   /* background-color: rgba(31, 41, 55, 255); */
 
-  width: 90%;
+  width: 100%;
   color: black;
 }
 

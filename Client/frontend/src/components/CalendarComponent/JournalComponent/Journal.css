@@ -1,3 +1,23 @@
 .journalEntryContainer {
   background: black;
 }
+
+
+
+#dateClicked {
+  color: black;
+  text-align: center;
+  
+}
+
+#journalText {
+  width: 100%;
+}
+
+
+
+.formContainer {
+  
+
+  width:100%;
+}

@@ -13,9 +13,9 @@ export default function CalendarComponent() {
 
   return (
     <>
-      <div className="calendarContainer mt-5 mx-5 rounded">
+      <div className="calendarContainer mx-5 rounded">
         <Calendar
-          className="calendarCSS"
+          className="calendarCSS rounded"
           onChange={(value) => {
             onChange(value);
           }}
