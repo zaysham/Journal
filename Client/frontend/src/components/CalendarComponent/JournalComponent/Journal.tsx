@@ -46,13 +46,17 @@ export default function Journal({ value }: JournalProps) {
   }
 
   return (
-    <div className="journalContainer mx-5">
+    <div className="journalContainer mx-auto">
+      <button onClick={() => findEntry(value)} className="btn btn-dark mb-2">
+        Get Journal Entry for {value}
+      </button>
+
       <h2 id="dateClicked" className="mt-3">
         {value}
       </h2>
 
       <form
-        className="formContainer mx-auto"
+        className="formContainer"
         action=""
         onSubmit={(e) => {
           handleClick(e);
@@ -68,16 +72,12 @@ export default function Journal({ value }: JournalProps) {
           onChange={(e) => setJournalData(e.target.value)}
         />
 
-        <div className="text-center">
-          <button id="submitEntry" className="btn btn-success mt-1">
+        <div className="">
+          <button id="submitEntry" className="btn btn-success mt-1 mb-2">
             Submit Entry for {value}
           </button>
         </div>
       </form>
-
-      <button onClick={() => findEntry(value)} className="btn btn-warning">
-        Get Journal Entry for {value}
-      </button>
 
       {journalEntries && (
         <div className="journalEntryContainer">

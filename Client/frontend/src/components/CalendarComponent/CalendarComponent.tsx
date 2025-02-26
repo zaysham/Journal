@@ -13,7 +13,7 @@ export default function CalendarComponent() {
 
   return (
     <>
-      <div className="calendarContainer mx-5 rounded">
+      <div className="calendarContainer mt-3 rounded">
         <Calendar
           className="calendarCSS rounded"
           onChange={(value) => {

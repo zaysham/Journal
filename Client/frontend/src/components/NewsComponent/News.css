@@ -4,13 +4,23 @@
 
   height: 100%;
   /* background-color: rgba(31, 41, 55, 255); */
-  background-color: #d8ecfe; 
+  background-color: #d8ecfe;
 }
 
 .news1,
 .news2,
 .news3 {
-  border: 1px solid rgba(31,31,55,255); 
+  /* border: 1px solid rgba(31, 31, 55, 255); */
+  padding: 3%;
+  text-align: center;
+}
+
+.news1,
+.news2 {
+  border-bottom: 1px solid slategray;
+}
+
+.newsHeaders {
   padding: 1%;
 }
 
@@ -21,7 +31,7 @@ h5 a {
 
 h5 a:hover {
   color: #004e92;
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
 a {

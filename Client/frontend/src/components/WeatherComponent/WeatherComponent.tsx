@@ -23,8 +23,7 @@ export default function WeatherComponent({
   };
   return (
     <>
-      (
-      <div className="p-3">
+      <div className="mb-3">
         <div className="weatherContainer rounded ms-auto">
           <div className="mx-5 p-2">
             <form
@@ -46,7 +45,7 @@ export default function WeatherComponent({
                 placeholder="Postal Code/Zipcode"
               />
 
-              <button className="btn btn-success ms-3">Get Weather</button>
+              <button className="btn btn-dark ms-3">Get Weather</button>
             </form>
           </div>
 
@@ -66,7 +65,6 @@ export default function WeatherComponent({
           )}
         </div>
       </div>
-      )
     </>
   );
 }

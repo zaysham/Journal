@@ -1,15 +1,3 @@
-
-
-#dateClicked {
-  color: black;
-}
-
-.journalContainer {
-  text-align: end; 
-
-  width:80%;
-}
-
 .calendarContainer {
   text-align: center;
 
@@ -18,10 +6,6 @@
 
   width: 100%;
   color: black;
-}
-
-#journalText {
-  width: 75%;
 }
 
 .calendarCSS {

@@ -2,22 +2,17 @@
   background: black;
 }
 
-
-
 #dateClicked {
   color: black;
-  text-align: center;
-  
+
+  text-decoration: underline;
 }
 
 #journalText {
-  width: 100%;
+  width: 75%;
 }
 
-
-
-.formContainer {
-  
-
-  width:100%;
+.journalContainer {
+  width: 80%;
+  text-align: center;
 }
