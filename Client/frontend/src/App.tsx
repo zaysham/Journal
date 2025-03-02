@@ -4,7 +4,6 @@ import { useState } from "react";
 import Navbar from "./components/NavbarComponent/Navbar";
 import WeatherComponent from "./components/WeatherComponent/WeatherComponent";
 import News from "./components/NewsComponent/News";
-import Journal from "./components/JournalComponent/Journal";
 import CalendarComponent from "./components/CalendarComponent/CalendarComponent";
 
 export default function App() {
@@ -88,9 +87,75 @@ export default function App() {
       });
   };
 
+  // const getEntry = function () {
+  //   axios
+  //     .get("http://localhost:3000/journal")
+  //     .then((res) => {
+  //       // console.log(res.data[0]);
+  //       // console.log(res.data[1]);
+
+  //       for (const r of res.data) {
+  //         console.log(`Date: ${r.date}`);
+  //         console.log(r.entry);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  // const postEntry = function (date, jEntry) {
+  //   axios
+  //     .post("http://localhost:3000/journal", { date, jEntry })
+  //     .then(() => {
+  //       console.log("SENT");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  // const deleteEntry = function () {
+  //   axios
+  //     .delete(`http://localhost:3000/journal/${date}`)
+  //     .then(() => {
+  //       console.log("DELETED");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  // const patchEntry = function (date, jEntry) {
+  //   axios
+  //     .patch(`http://localhost:3000/journal/${date}`, { entry: jEntry })
+  //     .then(() => {
+  //       console.log("UPDATED");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
   return (
     <>
       <Navbar />
+
+      {/* <button onClick={getEntry} className="btn btn-primary">
+        GET Journal Entries
+      </button>
+
+      <button onClick={postEntry} className="btn btn-success">
+        Send Data
+      </button>
+
+      <button onClick={deleteEntry} className="btn btn-danger">
+        Delete Entry
+      </button>
+
+      <button onClick={patchEntry} className="btn btn-warning">
+        Update Entry
+      </button> */}
 
       <div className="">
         <div className="row">
