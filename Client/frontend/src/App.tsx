@@ -141,22 +141,6 @@ export default function App() {
     <>
       <Navbar />
 
-      {/* <button onClick={getEntry} className="btn btn-primary">
-        GET Journal Entries
-      </button>
-
-      <button onClick={postEntry} className="btn btn-success">
-        Send Data
-      </button>
-
-      <button onClick={deleteEntry} className="btn btn-danger">
-        Delete Entry
-      </button>
-
-      <button onClick={patchEntry} className="btn btn-warning">
-        Update Entry
-      </button> */}
-
       <div className="">
         <div className="row">
           <div className="col-lg-8">

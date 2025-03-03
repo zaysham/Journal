@@ -6,64 +6,72 @@ interface JournalProps {
   value: string;
 }
 
-interface JournalEntry {
-  date: string;
-  entry: string;
-}
-
-const getEntry = function () {
-  axios
-    .get("http://localhost:3000/journal")
-    .then((res) => {
-      // console.log(res.data[0]);
-      // console.log(res.data[1]);
-
-      for (const r of res.data) {
-        console.log(`Date: ${r.date}`);
-        console.log(r.entry);
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-const postEntry = function (date, jEntry) {
-  axios
-    .post("http://localhost:3000/journal", { date, jEntry })
-    .then(() => {
-      console.log("SENT");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-const deleteEntry = function () {
-  axios
-    .delete(`http://localhost:3000/journal/${date}`)
-    .then(() => {
-      console.log("DELETED");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-const patchEntry = function (date, jEntry) {
-  axios
-    .patch(`http://localhost:3000/journal/${date}`, { entry: jEntry })
-    .then(() => {
-      console.log("UPDATED");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
 export default function Journal({ value }: JournalProps) {
   const [jEntry, setJEntry] = useState("");
   const date = value;
+
+  const getEntry = function () {
+    axios
+      .get(`http://localhost:3000/journal/${date}`)
+      .then((res) => {
+        // console.log(res.data[0]);
+        // console.log(res.data[1]);
+
+        // for (const r of res.data) {
+        //   console.log(`Date: ${r.date}`);
+        //   console.log(r.entry);
+        // }
+        const dataReceived = res.data[0].entry;
+
+        console.log(dataReceived);
+
+        if (dataReceived.length > 0) {
+          setJEntry(dataReceived);
+        } else {
+          setJEntry("");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setJEntry("");
+      });
+  };
+
+  const postEntry = function (e) {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3000/journal", { date, jEntry })
+      .then(() => {
+        console.log(`${date} journal entry successfully sent`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const deleteEntry = function () {
+    axios
+      .delete(`http://localhost:3000/journal/${date}`)
+      .then(() => {
+        console.log(`${date} journal entry is successfully deleted`);
+        setJEntry("");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const patchEntry = function () {
+    axios
+      .patch(`http://localhost:3000/journal/${date}`, { entry: jEntry })
+      .then(() => {
+        console.log("UPDATED");
+        setJEntry(`ENTRY UPDATED TO:  ${jEntry}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   // const arr = [];
 
@@ -115,8 +123,8 @@ export default function Journal({ value }: JournalProps) {
         // onSubmit={(e) => {
         //   handleClick(e);
         // }}
-        onSubmit={() => {
-          postEntry(date, jEntry);
+        onSubmit={(e) => {
+          postEntry(e);
         }}
       >
         <textarea
@@ -125,8 +133,9 @@ export default function Journal({ value }: JournalProps) {
           id="journalText"
           rows={13}
           // cols={106}
-          placeholder="Type your entry here"
+          placeholder="Please enter your journal entry here"
           onChange={(e) => setJEntry(e.target.value)}
+          value={jEntry}
         />
 
         <div className="">
@@ -145,7 +154,11 @@ export default function Journal({ value }: JournalProps) {
 
       <button onClick={getEntry}>Get Entry</button>
 
-      <button onClick={() => postEntry(date, jEntry)}>Send Data</button>
+      <button onClick={postEntry}>Send Data</button>
+
+      <button onClick={deleteEntry}>Delete journal entry for {date}</button>
+
+      <button onClick={patchEntry}>Update Journal Entry</button>
     </div>
   );
 }

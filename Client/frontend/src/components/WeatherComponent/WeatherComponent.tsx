@@ -45,7 +45,7 @@ export default function WeatherComponent({
                 placeholder="Postal Code/Zipcode"
               />
 
-              <button className="btn btn-dark ms-3">Get Weather</button>
+              <button className="btn btn-dark ms-3 my-3">Get Weather</button>
             </form>
           </div>
 
