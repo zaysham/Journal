@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Journal.css";
 import axios from "axios";
 
@@ -9,6 +9,8 @@ interface JournalProps {
 export default function Journal({ value }: JournalProps) {
   const [jEntry, setJEntry] = useState("");
   const date = value;
+  const [errorMessage, setErrorMessage] = useState("");
+  const firstRender = useRef(true);
 
   const getEntry = function () {
     axios
@@ -26,9 +28,17 @@ export default function Journal({ value }: JournalProps) {
       })
       .catch((error) => {
         console.log(error);
-        setJEntry("");
+        setJEntry("No Entry found");
       });
   };
+
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+    } else {
+      getEntry();
+    }
+  }, [value]);
 
   const postEntry = function (e) {
     e.preventDefault();
@@ -38,6 +48,7 @@ export default function Journal({ value }: JournalProps) {
         console.log(`${date} journal entry successfully sent`);
       })
       .catch((error) => {
+        setJEntry("A journal entry already exists.");
         console.log(error);
       });
   };
@@ -66,45 +77,9 @@ export default function Journal({ value }: JournalProps) {
       });
   };
 
-  // const arr = [];
-
-  // const [journalEntries, setJournalEntries] = useState<JournalEntry[]>([]);
-
-  // const [journalData, setJournalData] = useState("");
-
-  // const [currentData, setCurrentData] = useState({
-  //   date: "",
-  //   entry: "",
-  // });
-
-  // function handleClick(e) {
-  //   e.preventDefault();
-  //   const tempObj: JournalEntry = {
-  //     date: value,
-  //     entry: journalData,
-  //   };
-
-  //   const latest = [...journalEntries, tempObj];
-  //   setJournalEntries(latest);
-
-  //   arr.push(latest);
-  //   console.log(arr[0]);
-  // }
-
-  // function findEntry(data: string) {
-  //   const filteredEntry = journalEntries.filter((word) => word.date === data);
-
-  //   setCurrentData({
-  //     date: filteredEntry[0].date,
-  //     entry: filteredEntry[0].entry,
-  //   });
-  // }
-
   return (
     <div className="journalContainer mx-auto">
-      <button onClick={getEntry} className="btn btn-success mt-2">
-        Get Journal Entry
-      </button>
+      {errorMessage && <h1 className="text-danger">{errorMessage}</h1>}
 
       <button className="btn btn-danger mt-2 mx-3" onClick={deleteEntry}>
         Delete Journal Entry
@@ -136,11 +111,7 @@ export default function Journal({ value }: JournalProps) {
         />
 
         <div className="">
-          <button
-            onClick={postEntry}
-            id="submitEntry"
-            className="btn btn-success mt-1 mb-1"
-          >
+          <button id="submitEntry" className="btn btn-success mt-1 mb-1">
             Submit Journal Entry
           </button>
         </div>

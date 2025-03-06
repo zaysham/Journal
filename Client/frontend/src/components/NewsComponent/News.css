@@ -33,13 +33,20 @@
 h5 a {
   /* color: #ffffff; */
   color: black;
+  text-decoration: underline;
 }
 
 h5 a:hover {
-  color: #004e92;
-  text-decoration: underline;
+  color: blue;
+  
 }
 
 a {
   text-decoration: none;
 }
+
+.newsContainer:hover{
+  box-shadow: 0 0 25px #343a40, 0 0 35px #343a40;
+cursor: pointer;
+}
+

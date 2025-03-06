@@ -17,3 +17,8 @@
   width: 60%;
   border: 1px solid black;
 }
+
+.calendarCSS:hover {
+  box-shadow: 0 0 25px #343a40, 0 0 35px #343a40;
+  cursor: pointer;
+}

@@ -8,9 +8,13 @@ app.use(cors());
 app.use(express.json());
 let receivedPostal = "";
 
+const weatherAPIKey = '';   //enter your API key for weatherapi.com
+const newsAPIKey = '';    //enter your API key for newsapi.org
+
 app.get("/journal/:date", async (req, res)=>{   //reads journal database
 
 const {date} = req.params; 
+
 
 try {
 
@@ -29,8 +33,9 @@ try {
 
     
 }catch(err){
+  console.log("ERROR OCCURED"); 
     console.log(err); 
-
+    res.send(err); 
 }
 
 })
@@ -42,10 +47,14 @@ app.post("/journal", async (req, res)=>{ //creates entries for journal database
     await pool.query(
     'INSERT INTO entries (date, entry) VALUES (?, ?)',
     [date, jEntry]
+    
   ); 
   res.status(200).json({ message: "Entry Received" });
+  console.log("CALLED TRY"); 
   }catch(err){
+    console.log("CALLED CATCH"); 
   console.log("ERROR: " + err); 
+  res.send(""); 
   }
 })
 
@@ -87,7 +96,7 @@ app.patch("/journal/:date", async (req, res)=>{  //updates entry for journal dat
 
 app.get("/weather", async (req, res) => { //gets weather data from weather API 
   const response = await axios.get(
-    `http://api.weatherapi.com/v1/current.json?key=a62f3149c6954134ba6220638252102&q=${receivedPostal}&aqi=no`,
+    `http://api.weatherapi.com/v1/current.json?key=${weatherAPIKey}&q=${receivedPostal}&aqi=no`,
     {
       headers: { Accept: "application/json" },
     }
@@ -104,7 +113,7 @@ app.post("/weather", async (req, res) => {  //gets postal code from frontend, sa
 
 app.get("/news", async (req, res) => {
   const response = await axios.get(
-    "https://newsapi.org/v2/top-headlines?country=us&apiKey=431a85edfb674ced887ff1006fc4da87",
+    `https://newsapi.org/v2/top-headlines?country=us&apiKey=${newsAPIKey}`,
     {
       headers: { Accept: "applicaton/json" },
     }

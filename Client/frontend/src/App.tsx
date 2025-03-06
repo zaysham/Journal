@@ -5,6 +5,7 @@ import Navbar from "./components/NavbarComponent/Navbar";
 import WeatherComponent from "./components/WeatherComponent/WeatherComponent";
 import News from "./components/NewsComponent/News";
 import CalendarComponent from "./components/CalendarComponent/CalendarComponent";
+import Footer from "./components/FooterComponent/Footer";
 
 export default function App() {
   const [weather, setWeather] = useState({
@@ -104,6 +105,7 @@ export default function App() {
           <div className="col-lg-4">
             <WeatherComponent weather={weather} sendPostal={sendPostal} />
             <News getNews={getNews} news={news} />
+            <Footer />
           </div>
         </div>
       </div>
