@@ -14,13 +14,6 @@ export default function Journal({ value }: JournalProps) {
     axios
       .get(`http://localhost:3000/journal/${date}`)
       .then((res) => {
-        // console.log(res.data[0]);
-        // console.log(res.data[1]);
-
-        // for (const r of res.data) {
-        //   console.log(`Date: ${r.date}`);
-        //   console.log(r.entry);
-        // }
         const dataReceived = res.data[0].entry;
 
         console.log(dataReceived);
@@ -109,9 +102,13 @@ export default function Journal({ value }: JournalProps) {
 
   return (
     <div className="journalContainer mx-auto">
-      {/* <button onClick={() => findEntry(value)} className="btn btn-dark mb-2">
-        Get Journal Entry for {value}
-      </button> */}
+      <button onClick={getEntry} className="btn btn-success mt-2">
+        Get Journal Entry
+      </button>
+
+      <button className="btn btn-danger mt-2 mx-3" onClick={deleteEntry}>
+        Delete Journal Entry
+      </button>
 
       <h2 id="dateClicked" className="mt-3">
         {value}
@@ -139,26 +136,19 @@ export default function Journal({ value }: JournalProps) {
         />
 
         <div className="">
-          <button id="submitEntry" className="btn btn-success mt-1 mb-2">
-            Submit Entry for {value}
+          <button
+            onClick={postEntry}
+            id="submitEntry"
+            className="btn btn-success mt-1 mb-1"
+          >
+            Submit Journal Entry
           </button>
         </div>
       </form>
 
-      {/* {journalEntries && (
-        <div className="journalEntryContainer">
-          <h1>{currentData.date}</h1>
-          <h1>{currentData.entry}</h1>
-        </div>
-      )} */}
-
-      <button onClick={getEntry}>Get Entry</button>
-
-      <button onClick={postEntry}>Send Data</button>
-
-      <button onClick={deleteEntry}>Delete journal entry for {date}</button>
-
-      <button onClick={patchEntry}>Update Journal Entry</button>
+      <button className="btn btn-warning mt-2 mb-3" onClick={patchEntry}>
+        Update Journal Entry
+      </button>
     </div>
   );
 }

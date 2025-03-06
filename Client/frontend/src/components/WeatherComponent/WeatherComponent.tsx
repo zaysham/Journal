@@ -23,8 +23,10 @@ export default function WeatherComponent({
   };
   return (
     <>
-      <div className="mb-3">
+      <div className="mt-3 mb-3 mx-3">
         <div className="weatherContainer rounded ms-auto">
+          <h3 className="mt-3">Local Weather</h3>
+
           <div className="mx-5 p-2">
             <form
               onSubmit={(e) => {
@@ -48,8 +50,6 @@ export default function WeatherComponent({
               <button className="btn btn-dark ms-3 my-3">Get Weather</button>
             </form>
           </div>
-
-          <h3 className="mb-3">Local Weather</h3>
 
           {weather.city && (
             <>

@@ -8,6 +8,7 @@ import CalendarComponent from "./components/CalendarComponent/CalendarComponent"
 
 export default function App() {
   const [weather, setWeather] = useState({
+    //create use state for weather data
     country: "",
     city: "",
     temp: "",
@@ -16,6 +17,7 @@ export default function App() {
   });
 
   const [news, setNews] = useState<
+    //create state for news component
     [
       { title: string; description: string; url: string },
       { title: string; description: string; url: string },
@@ -28,7 +30,8 @@ export default function App() {
   ]);
 
   const fetchWeather = function () {
-    //fetch weather function
+    //fetches weather from backend
+
     axios
       .get("http://localhost:3000/weather")
       .then((res) => {
@@ -46,7 +49,7 @@ export default function App() {
   };
 
   const sendPostal = function (postal: string) {
-    //send postal code function
+    //sends postal code to backend
 
     axios
       .post("http://localhost:3000/weather", { postal })
@@ -61,6 +64,7 @@ export default function App() {
   };
 
   const getNews = function () {
+    //fetches news from backend
     axios
       .get("http://localhost:3000/news")
       .then((res) => {
@@ -86,56 +90,6 @@ export default function App() {
         console.log(error);
       });
   };
-
-  // const getEntry = function () {
-  //   axios
-  //     .get("http://localhost:3000/journal")
-  //     .then((res) => {
-  //       // console.log(res.data[0]);
-  //       // console.log(res.data[1]);
-
-  //       for (const r of res.data) {
-  //         console.log(`Date: ${r.date}`);
-  //         console.log(r.entry);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
-  // const postEntry = function (date, jEntry) {
-  //   axios
-  //     .post("http://localhost:3000/journal", { date, jEntry })
-  //     .then(() => {
-  //       console.log("SENT");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
-  // const deleteEntry = function () {
-  //   axios
-  //     .delete(`http://localhost:3000/journal/${date}`)
-  //     .then(() => {
-  //       console.log("DELETED");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
-  // const patchEntry = function (date, jEntry) {
-  //   axios
-  //     .patch(`http://localhost:3000/journal/${date}`, { entry: jEntry })
-  //     .then(() => {
-  //       console.log("UPDATED");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
 
   return (
     <>

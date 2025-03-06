@@ -7,6 +7,11 @@
   background-color: #d8ecfe;
 }
 
+.newsTitle{
+  padding: 1%;
+}
+
+.newsTitle, 
 .news1,
 .news2,
 .news3 {
@@ -15,6 +20,7 @@
   text-align: center;
 }
 
+.newsTitle, 
 .news1,
 .news2 {
   border-bottom: 1px solid slategray;

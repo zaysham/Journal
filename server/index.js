@@ -13,10 +13,6 @@ app.get("/journal/:date", async (req, res)=>{   //reads journal database
 const {date} = req.params; 
 
 try {
-    // const [results] = await pool.query(
-    //     'SELECT * FROM entries'
-    // ); 
-    // res.send(results); 
 
     const [results] = await pool.query(
         `SELECT entry FROM entries WHERE date = (?)`, 
@@ -83,13 +79,13 @@ app.patch("/journal/:date", async (req, res)=>{  //updates entry for journal dat
    
   }catch(error){
     console.log(error); 
-    res.json("Update failed"); 
+    res.json("Update failed");  
   }
 })
 
 
 
-app.get("/weather", async (req, res) => {
+app.get("/weather", async (req, res) => { //gets weather data from weather API 
   const response = await axios.get(
     `http://api.weatherapi.com/v1/current.json?key=a62f3149c6954134ba6220638252102&q=${receivedPostal}&aqi=no`,
     {
@@ -100,7 +96,7 @@ app.get("/weather", async (req, res) => {
   res.send(response.data);
 });
 
-app.post("/weather", async (req, res) => {
+app.post("/weather", async (req, res) => {  //gets postal code from frontend, saves it into receivedPostal
   const { postal } = req.body;
   receivedPostal = postal;
   res.status(200).json({ message: "Postal code received" });
